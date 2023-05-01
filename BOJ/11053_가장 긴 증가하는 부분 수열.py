@@ -32,18 +32,21 @@ print(len(stack))
 
 #########################################################################################################
 
-# 동적 계획법을 이용한 풀이(3주차에 동적으로 해결하는 문제로 동일한 문제가 있음)
+# 동적 계획법을 이용한 풀이
 import sys
 
-N = int(sys.stdin.readline())
-A = list(map(int, sys.stdin.readline().split()))
-# A[i]를 마지막 값으로 가지는 가장 긴 증가 부분 수열의 길이 1로 초기화
-DP = [1] * N
+def DP():
+    for i in range(N):
+        for j in range(i):
+            # A[i]가 A[j]보다 크면 DP[i]에 DP[i]와 DP[j] + 1을 비교하여 더 큰 값을 저장
+            if A[i] > A[j]:
+                dp[i] = max(dp[i], dp[j] + 1)
+    print(max(dp))
 
-for i in range(N):
-    for j in range(i):
-        # a[i]가 A[j]보다 크면 DP[i]에 DP[i]와 DP[j] + 1을 비교하여 더 큰 값을 저장
-        if A[i] > A[j]:
-            DP[i] = max(DP[i], DP[j] + 1)
-
-print(max(DP))
+if __name__ == "__main__":
+    sys.stdin = open("input.txt","rt")
+    N = int(sys.stdin.readline())
+    A = list(map(int, sys.stdin.readline().split()))
+    # A[i]를 마지막 값으로 가지는 가장 긴 증가 부분 수열의 길이 1로 초기화
+    dp = [1] * N
+    DP()
