@@ -1,4 +1,7 @@
-Score = int(input())
+import sys
+
+sys.stdin = open("input.txt","rt")
+Score = int(sys.stdin.readline())
 if Score >= 90 and Score <= 100:
     print('A')
 elif Score >= 80 and Score <= 89:

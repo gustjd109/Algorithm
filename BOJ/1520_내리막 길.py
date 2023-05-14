@@ -37,3 +37,4 @@ if __name__ == "__main__":
     dy = [0, 0, -1, 1]
     # DFS 함수 수행
     print(dfs(0, 0))
+    
