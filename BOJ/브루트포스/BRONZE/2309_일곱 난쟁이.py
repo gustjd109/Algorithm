@@ -2,6 +2,7 @@
 import sys
 import itertools
 
+sys.stdin = open("input.txt","rt")
 N = [int(sys.stdin.readline()) for _ in range(9)]
 
 for i in itertools.combinations(N, 7):
